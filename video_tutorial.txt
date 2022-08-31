@@ -1,4 +1,18 @@
 https://www.youtube.com/watch?v=dZC4T4UiU1c&t=3324s
 
-npm run dev
 npx nuxi init project-name
+npm install
+npm run dev
+
+> To add bootstrap:
+in nuxt.config.ts:
+export default defineNuxtConfig({
+    meta:{
+        link: [
+            {
+                rel: "stylesheet",
+                href: "https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css",
+            }
+        ]
+    }
+})
