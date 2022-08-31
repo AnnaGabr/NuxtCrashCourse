@@ -163,12 +163,10 @@ h1 {
 
 
 <script setup lang = "ts">
-import { OptionsPaths } from 'rollup';
 
 // Se copia y pega esto en data.ts y desde allá se exporta poniendo export al principio y se importan aqui
 
 import { Gender, Popularity, Length, names } from "@/data"
-import { kMaxLength } from 'buffer';
 
 /*
 

@@ -1,3 +1,4 @@
 https://www.youtube.com/watch?v=dZC4T4UiU1c&t=3324s
 
 npm run dev
+npx nuxi init project-name
