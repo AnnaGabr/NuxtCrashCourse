@@ -16,3 +16,12 @@ export default defineNuxtConfig({
         ]
     }
 })
+
+>Notes:
+
+1. Ref and Reactive should only be used in a script setup
+
+2. So route.params.etcetc wont appear as an error we can write import {} from '#app'
+
+3. Layouts file name whould NOT have capital letters
+
