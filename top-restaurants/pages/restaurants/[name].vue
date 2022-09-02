@@ -1,6 +1,6 @@
 <template>
     <div>
-      <div class="restaurant-container">
+      <div v-if="restaurant" class="restaurant-container">
         <div class="image-container">
           <img :src="restaurant.imageUrl" alt="" />
         </div>
@@ -16,6 +16,12 @@
           </div>
           <p class="content">{{ restaurant.content }}</p>
         </div>
+      </div>
+      <div v-else class="restaurant-container">
+        <h1>Restaurant not found</h1>
+        <button
+        class="btn btn-primary btn-lg"
+        @click="$router.push('/restaurants')">Go back</button>
       </div>
       <RestaurantAd />
     </div>
