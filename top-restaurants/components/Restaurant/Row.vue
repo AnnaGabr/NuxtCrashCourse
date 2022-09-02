@@ -41,10 +41,10 @@
 <script setup lang="ts">
 
 interface RowProps {
-  rank: number;
-  name: string;
-  index: number;
-  isHeader: boolean;
+  rank?: number;
+  name?: string;
+  index?: number;
+  isHeader?: boolean;
 }
 
 const props = defineProps<RowProps>()

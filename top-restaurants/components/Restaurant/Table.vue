@@ -3,24 +3,22 @@
       <h1>TOP 50: THE RANKING</h1>
       <div class="table-container">
         <div class="table-col">
-          <RestaurantRow :is-header="true" :name="null" :rank="null" :index="null"/>
+          <RestaurantRow :is-header="true"/>
           <RestaurantRow
           v-for="(restaurant, idx) in restaurantsOrganized.first"
           :key="restaurant.id"
           :name="restaurant.name"
           :rank="restaurant.rank"
-          :index="idx"
-          :is-header="false"/>
+          :index="idx"/>
         </div>
         <div class="table-col">
-          <RestaurantRow :is-header="true" :name="null" :rank="null" :index="null"/>
+          <RestaurantRow :is-header="true"/>
           <RestaurantRow
           v-for="(restaurant, idx) in restaurantsOrganized.second"
           :key="restaurant.id"
           :name="restaurant.name"
           :rank="restaurant.rank"
-          :index="idx"
-          :is-header="false"/>
+          :index="idx"/>
         </div>
       </div>
     </div>
