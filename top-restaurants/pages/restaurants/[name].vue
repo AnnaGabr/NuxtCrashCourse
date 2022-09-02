@@ -17,6 +17,7 @@
           <p class="content">{{ restaurant.content }}</p>
         </div>
       </div>
+      <RestaurantAd />
     </div>
   </template>
   
