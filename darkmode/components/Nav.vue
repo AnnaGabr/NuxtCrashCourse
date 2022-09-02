@@ -1,6 +1,8 @@
 <template>
-    <nav>
-      <div>
+    <nav
+    :style="isDarkmode ? {backgroundColor: 'rgb(73, 72, 72)'} : null">
+      <div
+      :style="isDarkmode ? {color: 'white'} : null">
         <h1>Artikle</h1>
         <label class="switch">
           <input type="checkbox" />

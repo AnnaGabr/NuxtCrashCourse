@@ -8,10 +8,13 @@
     }
     
     const props = defineProps<CardProps>();
+
+      const { isDarkmode } = useDarkmode();
+
     </script>
     
     <template>
-      <div class="card">
+      <div class="card" :style="isDarkmode ? {backgroundColor: 'black', color: 'white'} : null">
         <img :src="card.img" alt="" />
         <div class="content">
           <h3>{{ card.title }}</h3>

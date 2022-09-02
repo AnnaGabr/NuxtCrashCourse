@@ -31,12 +31,15 @@
         author: "Gavin Scott",
       },
     ];
+
+    const { isDarkmode } = useDarkmode();
+
     </script>
     
     <template>
-      <div class="container">
+      <div class="container" :style="isDarkmode ? {backgroundColor: 'rgb(73, 72, 72)'} : null">
         <div class="content-container">
-          <h3>Reading List</h3>
+          <h3 :style="isDarkmode ? {color: 'white'} : null">Reading List</h3>
           <div class="cards-container">
             <Card v-for="(card, index) in cards" :key="index" :card="card" />
           </div>
@@ -67,3 +70,5 @@
       font-size: 25px;
     }
     </style>
+
+    

@@ -1,6 +1,6 @@
 <template>
   <div
-  :style="isDarkMode ? {background: 'black'} : null">
+  :style="isDarkmode ? {backgroundColor: 'black'} : null">
     <Nav />
     <Heading />
     <Cards />
