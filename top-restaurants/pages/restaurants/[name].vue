@@ -19,8 +19,13 @@
           </div>
         </div>
       </NuxtLayout>
-      <div v-else class="restaurant-container">
+      <div v-else class="restaurant-not-found">
         <h1>Restaurant not found</h1>
+        <div>
+          <img
+          src="https://cdn-icons-png.flaticon.com/512/158/158398.png"
+          alt="a sad face" />
+        </div>
         <button
         class="btn btn-primary btn-lg"
         @click="$router.push('/restaurants')">Go back</button>
@@ -74,6 +79,9 @@
   .content {
     font-size: 1.5rem;
     margin-top: 4rem;
+  }
+  img {
+    width: 10rem;
   }
   </style>
 
