@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div
+  :style="isDarkMode ? {background: 'black'} : null">
     <Nav />
     <Heading />
     <Cards />
@@ -13,3 +14,9 @@
   font-family: Georgia;
 }
 </style>
+
+<script setup lang="ts">
+
+const { isDarkmode } = useDarkmode();
+
+</script>

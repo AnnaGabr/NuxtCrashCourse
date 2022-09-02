@@ -1,8 +1,10 @@
 // Ref and Reactive should only be used in a script setup
 
 const useDarkmode = () => {
-    const isDarkMode = useState("darkMode", () => false);
+    const isDarkmode = useState("darkmode", () => false);
     return {
-        isDarkMode,
+        isDarkmode,
     }
 }
+
+export default useDarkmode;

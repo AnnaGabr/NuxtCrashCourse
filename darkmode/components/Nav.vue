@@ -91,3 +91,9 @@
     border-radius: 50%;
   }
   </style>
+
+<script setup lang="ts">
+
+const { isDarkmode } = useDarkmode();
+
+</script>
