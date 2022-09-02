@@ -5,7 +5,9 @@
       :style="isDarkmode ? {color: 'white'} : null">
         <h1>Artikle</h1>
         <label class="switch">
-          <input type="checkbox" />
+          <input
+          type="checkbox"
+          @click="toggleDarkmode" />
           <span class="slider round"></span>
         </label>
       </div>
@@ -96,6 +98,6 @@
 
 <script setup lang="ts">
 
-const { isDarkmode } = useDarkmode();
+const { isDarkmode, toggleDarkmode } = useDarkmode();
 
 </script>
