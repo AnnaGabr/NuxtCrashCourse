@@ -17,6 +17,63 @@ export default defineNuxtConfig({
     }
 })
 
+>To use Tailwind:
+1. npm install tailwindcss @tailwindcss/aspect-ratio @tailwindcss/forms @tailwindcss/line.clamp @tailwindcss/typography
+2. create assets\css\tailwind.css and write there:
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+3. inside nuxt.config.ts:
+export default defineNuxtConfig({
+    css: [
+        "@/assets/css/tailwind.css"
+    ],
+    build: {
+        postcss: {
+            postcssOptions: {
+                plugins: {
+                    tailwindcss: {},
+                    autoprefixer: {},
+                }
+            }
+        }
+    }
+})
+4. create tailwind.config.ts and write there:
+const defaultTheme = require("tailwindcss/defaultTheme");
+
+module.exports = {
+  mode: "jit",
+  content: {
+    files: [
+      "./components/**/*.{vue,js}",
+      "./layouts/**/*.vue",
+      "./pages/**/*.vue",
+      "./app.vue",
+      "./plugins/**/*.{js,ts}",
+      "./nuxt.config.{js,ts}",
+    ],
+  },
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['"Inter var"', ...defaultTheme.fontFamily.sans],
+      },
+    },
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/line-clamp"),
+    require("@tailwindcss/aspect-ratio"),
+  ],
+};
+
+
+
 >Notes:
 
 1. Ref and Reactive should only be used in a script setup
