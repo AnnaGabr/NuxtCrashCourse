@@ -1,7 +1,7 @@
 <template>
   <!-- h-screen: the height will be the same as the screen,
   overflow-hidden: everything that overflows this height will be hidden -->
-  <div class="h-screen relative overflow-hidden">
+  <div v-if="city" class="h-screen relative overflow-hidden">
     <!-- this will be the background image -->
     <img :src="background"/>
     <div class="absolute w-full h-full top-0 overlay" />
@@ -25,6 +25,12 @@
         <button class="bg-sky-400 w-20 text-white h-10" @click="handleClick">Search</button>
       </div>
     </div>
+  </div>
+  <div v-else class="p-10">
+    <h1 class="text-7xl ">Oops, we can't find that city</h1>
+    <button class="mt-5 bg-sky-400 px-10 w-50 text-white h-10">
+      Go back
+    </button>
   </div>
 </template>
 
