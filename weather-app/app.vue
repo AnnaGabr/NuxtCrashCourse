@@ -9,7 +9,7 @@
       <div class="flex justify-between"> <!--to separate the 2 columns-->
         <div>
           <h1 class="text-7xl text-white">{{ city.name }}</h1>
-          <p class="font-extralight text-2xl mt-2 text-white ">Sunday Dec 9th</p> <!--mt: margin top-->
+          <p class="font-extralight text-2xl mt-2 text-white ">{{ today_ }}</p> <!--mt: margin top-->
           <img
           :src="`https://openweathermap.org/img/wn/${city.weather[0].icon}@4x.png`"
           class="w-56 icon" /> <!-- sunny, rainy, etc icon --> <!--w: width-->
@@ -111,6 +111,14 @@ const { data: city, error } = useLazyAsyncData(
     return response;
   }
 )
+
+let today = new Date();
+let today_ = today.toLocaleDateString("en-US", {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric"
+})
 
 const goBack = () => {
   search.value = cookie.value;
