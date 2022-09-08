@@ -72,7 +72,8 @@ const { data: city, error } = useLazyAsyncData(
         {
           params: {
             units: "metric",
-            appid: "61341ed5813674f5d4d2ad8dbb15a31a"
+            appid: process.env.WEATHER_APP_SECRET
+            // en un archivo llamado .env se pone WEATHER_APP_SECRET=numerodelid
           }
         }
         );
