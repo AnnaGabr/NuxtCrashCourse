@@ -67,7 +67,15 @@ const { data: city, error } = useLazyAsyncData(
     
     try {
 
-      response = await $fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search.value}&units=metric&appid=61341ed5813674f5d4d2ad8dbb15a31a`);
+      response = await $fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${search.value}`,
+        {
+          params: {
+            units: "metric",
+            appid: "61341ed5813674f5d4d2ad8dbb15a31a"
+          }
+        }
+        );
       const temp = response.main.temp
 
       cookie.value = search.value
