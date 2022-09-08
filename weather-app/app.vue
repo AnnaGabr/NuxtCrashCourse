@@ -28,7 +28,7 @@
   </div>
   <div v-else class="p-10">
     <h1 class="text-7xl ">Oops, we can't find that city</h1>
-    <button class="mt-5 bg-sky-400 px-10 w-50 text-white h-10">
+    <button class="mt-5 bg-sky-400 px-10 w-50 text-white h-10" @click="goBack">
       Go back
     </button>
   </div>
@@ -111,6 +111,11 @@ const { data: city, error } = useLazyAsyncData(
     return response;
   }
 )
+
+const goBack = () => {
+  search.value = cookie.value;
+  refreshNuxtData();
+}
 
 const handleClick = () => {
   const formatedSearch = input.value.trim().split(" ").join("+");
