@@ -57,11 +57,8 @@ const { data: city, error } = useFetch(
 const { data: city, error } = useLazyAsyncData(
   "city", // this is an unique identifier for the useAsyncData
   async () => { // the second parameter should be an async function that give us what we want
-    return {
-      name: "Los Angeles",
-      weather: [{icon: "01n"}],
-      main: { temp: 30 },
-    }
+    const response = $fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search.value}&units=metric&appid=61341ed5813674f5d4d2ad8dbb15a31a`);
+    return response;
   }
 )
 
