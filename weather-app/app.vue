@@ -42,6 +42,7 @@
 <script setup lang="ts">
 
   const cookie = useCookie("city") // city is the name of the cookie, we have to go to applicatoion > Cookies in the browser devTools
+  const config = useRuntimeConfig()
 
 if (!cookie.value ) {
   cookie.value = "Toronto"
@@ -72,7 +73,7 @@ const { data: city, error } = useLazyAsyncData(
         {
           params: {
             units: "metric",
-            appid: process.env.WEATHER_APP_SECRET
+            appid: config.WEATHER_APP_SECRET
             // en un archivo llamado .env se pone WEATHER_APP_SECRET=numerodelid
           }
         }
