@@ -41,8 +41,14 @@
 
 <script setup lang="ts">
 
+  const cookie = useCookie("city") // city is the name of the cookie, we have to go to applicatoion > Cookies in the browser devTools
+
+if (!cookie.value ) {
+  cookie.value = "Toronto"
+}
+
   const input = ref("")
-  const search = ref("Toronto")
+  const search = ref(cookie.value)
   const background = ref("")
 
 //https://api.openweathermap.org/data/2.5/weather?q=toronto&appid=61341ed5813674f5d4d2ad8dbb15a31a
