@@ -1,4 +1,5 @@
+import { db } from "../../db"
 
 export default defineEventHandler(() => {
-    return "Hello this is data"
+    return db.todos;
 })
