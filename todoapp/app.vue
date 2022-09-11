@@ -4,7 +4,7 @@
       <h1>To Do</h1>
       <div class="add-todo">
         <input placeholder="Add a new todo.." v-model="input" />
-        <NButton @click="() => addTodo(input)">Add</NButton>
+        <NButton @click="handleClick">Add</NButton>
       </div>
       <NCard @click="() => {updateTodo(todo.id)}" class="card" v-for="todo in todos" :key="todo.id">
         <h4 :class="todo.completed ? 'complete' : null">{{ todo.item }}</h4>
@@ -54,5 +54,10 @@ input {
 
 const input = ref("")
 const {todos, addTodo, updateTodo,deleteTodo} = useTodos()
+
+const handleClick = () => {
+  addTodo(input.value);
+  input.value = ""
+}
 
 </script>
