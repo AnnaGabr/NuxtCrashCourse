@@ -4,7 +4,7 @@
       <h1>To Do</h1>
       <div class="add-todo">
         <input placeholder="Add a new todo.." v-model="input" />
-        <NButton @click="addTodo">Add</NButton>
+        <NButton @click="() => addTodo(input)">Add</NButton>
       </div>
       <NCard @click="() => {updateTodo(todo.id)}" class="card" v-for="todo in todos" :key="todo.id">
         <h4 :class="todo.completed ? 'complete' : null">{{ todo.item }}</h4>
@@ -52,27 +52,7 @@ input {
 
 <script setup lang="ts">
 
-//const { data: todos } = useFetch("/api/todo")
-const { data: todos, refresh } = useAsyncData("todos", async () => {
-  return $fetch("/api/todo")
-})
-
 const input = ref("")
-
-const addTodo = async () => {
-  if ( !input ) return;
-  await $fetch("/api/todo", {method: "post", body: {item: input.value}})
-  refresh()
-}
-
-const updateTodo = async (id) => {
-  await $fetch(`/api/todo/${id}`, {method: "put"})
-  refresh()
-}
-
-const deleteTodo = async (id) => {
-  await $fetch(`/api/todo/${id}`, {method: "delete"})
-  refresh()
-}
+const {todos, addTodo, updateTodo,deleteTodo} = useTodos()
 
 </script>
