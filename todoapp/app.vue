@@ -8,7 +8,7 @@
       </div>
       <NCard @click="() => {updateTodo(todo.id)}" class="card" v-for="todo in todos" :key="todo.id">
         <h4 :class="todo.completed ? 'complete' : null">{{ todo.item }}</h4>
-        <p>x</p>
+        <p @click="() => {deleteTodo(todo.id)}">x</p>
       </NCard>
     </NCard>
   </div>
@@ -63,6 +63,10 @@ const addTodo = async () => {
 
 const updateTodo = async (id) => {
   await $fetch(`/api/todo/${id}`, {method: "put"})
+}
+
+const deleteTodo = async (id) => {
+  await $fetch(`/api/todo/${id}`, {method: "delete"})
 }
 
 </script>
