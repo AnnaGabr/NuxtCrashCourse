@@ -72,7 +72,12 @@ module.exports = {
   ],
 };
 
-
+> To use nuxt/ui
+1. npm install @nuxt/ui
+2. inside nuxt.config.ts:
+export default defineNuxtConfig({
+    modules: ["@nuxt/ui"],
+})
 
 >Notes:
 
@@ -81,4 +86,6 @@ module.exports = {
 2. So route.params.etcetc wont appear as an error we can write import {} from '#app'
 
 3. Layouts file name whould NOT have capital letters
+
+4. useFetch isonly for GET data, if you wanna POST better to use $fetch("/path/to/endpoint", {method: "post", body: {} })
 
