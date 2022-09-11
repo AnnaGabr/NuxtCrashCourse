@@ -27,5 +27,11 @@ export default defineEventHandler((e) => {
         return updatedTodo
     }
 
-
+    if ( method === "DELETE" ) {
+        const {todo, index} = finTodoById(id)
+        db.todos.splice(index, 1)
+        return {
+            message: "item deleted"
+        }
+    }
 })
