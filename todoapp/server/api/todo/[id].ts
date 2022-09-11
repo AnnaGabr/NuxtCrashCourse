@@ -3,10 +3,9 @@ import { db } from "../../db"
 export default defineEventHandler((e) => {
     const method = e.req.method
     const context = e.context
-    console.log(e.context.params)
-
-    if ( method === "PUT" ) {
-        const id = context.params.id
+    const id = context.params.id
+    
+    const finTodoById = (todoId) => {
         let index
         const todo = db.todos.find((todoItem, idx) => {
             if ( todoItem.id === id ) {
@@ -15,6 +14,11 @@ export default defineEventHandler((e) => {
             } else { return false }
         })
         if (!todo) throw new Error()
+        return {todo, index}
+    }
+
+    if ( method === "PUT" ) {
+        const {todo, index} = finTodoById(id)
         const updatedTodo = {
             ...todo,
             completed: !todo.completed
@@ -22,4 +26,6 @@ export default defineEventHandler((e) => {
         db.todos[index] = updatedTodo
         return updatedTodo
     }
+
+
 })
