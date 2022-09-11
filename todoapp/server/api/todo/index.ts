@@ -1,8 +1,9 @@
 import { db } from "../../db"
 import { v4 as uuid } from "uuid"
+import { createError, sendError } from "h3"
 
 export default defineEventHandler( async (e) => {
-    
+
     const method = e.req.method
     
     if ( method === "GET" ) {
@@ -12,7 +13,14 @@ export default defineEventHandler( async (e) => {
     
     if ( method === "POST" ) {
         const body = await useBody(e)
-        if ( !body.item ) throw new Error()
+        if ( !body.item ){
+            const TodoNotFoundError = createError({
+                statusCode: 400,
+                statusMessage: "No item provided",
+                data: {},
+            })
+            sendError(e, TodoNotFoundError)
+        }
         const newTodo = {
             id: uuid(),
             item: body.item,
